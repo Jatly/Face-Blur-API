@@ -1,43 +1,55 @@
-# 🎭 Face Blur API – FastAPI App to Automatically Blur a Person’s Face
+# 🎭 Face Blur API
 
-This project allows you to **blur the face of a specific person** in any **image or video** by using a **reference photo** of that person.
+A FastAPI-powered application that automatically blurs a specific person’s face from an image or video using a reference image.
 
-It's built using **FastAPI**, **OpenCV**, and **face_recognition**.
-
----
-
-## 🖼️ Example Demo
-
-| Reference Image (Input) | Target Image (Input) | Output (Blurred) |
-|-------------------------|----------------------|------------------|
-| ![ref](./rd.jpg)        | ![input](./sddefault.jpg) | ![output](./blurred_output.jpeg) |
-
-> The API finds the person from the reference image and blurs only their face in the target image/video.
+Whether you're editing content for privacy, anonymity, or style — this API makes it as simple as upload → blur → download.
 
 ---
 
-## 🚀 How It Works
+## 🔍 How It Works
 
-1. Upload a **reference image** (of the person to blur)
-2. Upload a **target image or video**
-3. The app compares faces using deep encoding
-4. If the face matches → it applies a **Gaussian blur**
-5. Returns a downloadable blurred result
+1. Upload a **reference image** of the person you want to blur.
+2. Upload a **target image or video** containing that person.
+3. The API detects all faces in the target.
+4. It compares each face with the reference face using deep face encodings.
+5. Matching faces are blurred using Gaussian blur.
+6. A blurred version of the original image or video is returned.
 
 ---
 
-## 🛠️ Tech Stack
+## 🖼️ Demo Example
 
-- [FastAPI](https://fastapi.tiangolo.com/)
-- [face_recognition](https://github.com/ageitgey/face_recognition)
-- OpenCV
-- Python
+| Reference Image | Target Image | Blurred Output |
+|------------------|----------------------|------------------|
+| ![Reference](./rd.jpg) | ![Target](./sddefault.jpg) | ![Blurred](./blurred_output.jpeg) |
+
+---
+
+## 🚀 Features
+
+- ✅ Blur by face recognition (not position)
+- ✅ Works with both **images** and **videos**
+- ✅ Cleans up temporary files automatically
+- ✅ MIME type aware responses (proper file types)
+- ✅ CORS enabled (frontend ready)
+
+---
+
+## 🧰 Tech Stack
+
+- 🐍 Python 3.8+
+- ⚡ FastAPI
+- 🎥 OpenCV
+- 👤 face_recognition
+- 🧠 dlib (via face_recognition)
+- 📄 Uvicorn
+- 📦 Python-multipart
 
 ---
 
 ## 📦 Installation
 
-### 1. Clone the repo
+### 1. Clone this repo
 
 ```bash
 git clone https://github.com/your-username/Face-Blur-API.git
